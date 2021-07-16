@@ -1,6 +1,5 @@
 package com.example.exchangeservice.services;
 
-import com.example.exchangeservice.dtos.AddressDto;
 import com.example.exchangeservice.dtos.StockExchangeDto;
 import com.example.exchangeservice.entities.StockExchange;
 import com.example.exchangeservice.mappers.StockExchangeMapper;
@@ -17,17 +16,23 @@ import java.util.stream.Collectors;
 @Service
 public class StockExchangeService {
 
-    @Autowired
     private StockExchangeRepository stockExchangeRepository;
     private AddressRepository addressRepository;
     private StockExchangeMapper stockExchangeMapper;
+
+    @Autowired
+    public StockExchangeService(StockExchangeRepository stockExchangeRepository,AddressRepository addressRepository,StockExchangeMapper stockExchangeMapper){
+        this.stockExchangeMapper=stockExchangeMapper;
+        this.stockExchangeRepository=stockExchangeRepository;
+        this.addressRepository=addressRepository;
+    }
+
 
 
     public List<StockExchangeDto> getAllStockExchange(){
             List<StockExchange> li=stockExchangeRepository.findAll();
             if(li.isEmpty()){
-                List<StockExchangeDto> emptyList=new ArrayList<>();
-                return emptyList;
+                return new ArrayList<>();
             }
             return li.parallelStream().map(stockExchange->stockExchangeMapper.map(stockExchange,StockExchangeDto.class)).collect(Collectors.toList());
     }
