@@ -1,4 +1,4 @@
-package com.example.exchangeservice.repositories.entities;
+package com.example.exchangeservice.entities;
 
 import lombok.Data;
 
@@ -18,6 +18,8 @@ public class StockExchange {
 
     private String brief;
 
-    private int addressId;
+    @OneToOne
+    @JoinColumn(name="addressId",referencedColumnName = "id")
+    private Address address;
     
 }

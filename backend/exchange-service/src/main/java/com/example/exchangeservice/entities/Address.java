@@ -1,4 +1,4 @@
-package com.example.exchangeservice.repositories.entities;
+package com.example.exchangeservice.entities;
 
 
 import lombok.Data;
@@ -26,4 +26,6 @@ public class Address {
     private String country;
 
     private int pinCode;
+    @OneToOne(mappedBy = "address")
+    private StockExchange stockExchange;
 }
