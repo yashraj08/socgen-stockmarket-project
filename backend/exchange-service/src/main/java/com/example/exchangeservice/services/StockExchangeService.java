@@ -15,19 +15,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class StockExchangeService {
-
-    private StockExchangeRepository stockExchangeRepository;
-    private AddressRepository addressRepository;
-    private StockExchangeMapper stockExchangeMapper;
-
     @Autowired
-    public StockExchangeService(StockExchangeRepository stockExchangeRepository,AddressRepository addressRepository,StockExchangeMapper stockExchangeMapper){
-        this.stockExchangeMapper=stockExchangeMapper;
-        this.stockExchangeRepository=stockExchangeRepository;
-        this.addressRepository=addressRepository;
-    }
-
-
+    private StockExchangeRepository stockExchangeRepository;
+    @Autowired
+    private AddressRepository addressRepository;
+    @Autowired
+    private StockExchangeMapper stockExchangeMapper;
 
     public List<StockExchangeDto> getAllStockExchange(){
             List<StockExchange> li=stockExchangeRepository.findAll();

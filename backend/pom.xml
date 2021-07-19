@@ -65,7 +65,9 @@
 	</dependencies>
 	<modules>
 		<module>exchange-service</module>
+		<module>company-service</module>
 	</modules>
+
 	<build>
 		<plugins>
 			<plugin>
