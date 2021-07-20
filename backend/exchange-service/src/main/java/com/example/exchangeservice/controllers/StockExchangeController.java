@@ -1,6 +1,7 @@
 package com.example.exchangeservice.controllers;
 
 
+import com.example.exchangeservice.dtos.CompanyDto;
 import com.example.exchangeservice.dtos.StockExchangeDto;
 import com.example.exchangeservice.services.StockExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class StockExchangeController {
     @PostMapping
     public boolean addStockExchange(@RequestBody StockExchangeDto stockExchangeDto){
         return stockExchangeService.addStockExchange(stockExchangeDto);
+    }
+    @GetMapping("{id}/company")
+    public List<CompanyDto> getCompaniesOfStockExchange(@PathVariable int id){
+        return stockExchangeService.getCompaniesOfStockExchange(id);
     }
 
 }

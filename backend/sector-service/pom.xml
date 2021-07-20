@@ -9,9 +9,9 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>exchange-service</artifactId>
+	<artifactId>sector-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>exchange-service</name>
+	<name>sector-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>

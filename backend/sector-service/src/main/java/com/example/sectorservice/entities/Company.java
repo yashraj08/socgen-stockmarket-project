@@ -1,4 +1,4 @@
-package com.example.companyservice.entities;
+package com.example.sectorservice.entities;
 
 import lombok.Data;
 
@@ -34,7 +34,7 @@ public class Company {
     private List<BoardOfDirectors> boardOfDirectors= new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name="sector_id",referencedColumnName ="id")
+    @JoinColumn(name="sectorId",referencedColumnName ="id")
     private Sector sector;
 
 }

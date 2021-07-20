@@ -3,9 +3,11 @@ package com.example.companyservice.services;
 import com.example.companyservice.dtos.CompanyDto;
 import com.example.companyservice.entities.BoardOfDirectors;
 import com.example.companyservice.entities.Company;
+import com.example.companyservice.entities.Sector;
 import com.example.companyservice.mappers.CompanyMapper;
 import com.example.companyservice.repositories.BoardOfDirectorsRepository;
 import com.example.companyservice.repositories.CompanyRepository;
+import com.example.companyservice.repositories.SectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,9 @@ public class CompanyService {
     private BoardOfDirectorsRepository boardOfDirectorsRepository;
 
     @Autowired
+    private SectorRepository sectorRepository;
+
+    @Autowired
     private CompanyMapper companyMapper;
 
     public List<CompanyDto> getAllCompanies(){
@@ -35,17 +40,21 @@ public class CompanyService {
     }
     public CompanyDto getCompany(int id){
         Optional<Company> company=companyRepository.findById(id);
-        if(company.isPresent()){
-            return companyMapper.map(company.get(),CompanyDto.class);
-        }
-        return null;
+        return company.map(value -> companyMapper.map(value, CompanyDto.class)).orElse(null);
     }
+
     public boolean addCompany(CompanyDto companyDto){
         Company company= companyMapper.map(companyDto,Company.class);
-        for(BoardOfDirectors directors: company.getBoardOfDirectors()){
-            boardOfDirectorsRepository.save(directors);
+        Optional<Sector> sector=sectorRepository.findById(company.getSector().getId());
+        if(!sector.isPresent()){
+            return false;
         }
         companyRepository.save(company);
+        for(BoardOfDirectors directors: company.getBoardOfDirectors()){
+            directors.setCompany(company);
+            boardOfDirectorsRepository.save(directors);
+        }
+
         return true;
         
     }
@@ -56,6 +65,7 @@ public class CompanyService {
                 boardOfDirectorsRepository.delete(director);
             }
             companyRepository.deleteById(id);
+            return true;
         }
         return false;
     }

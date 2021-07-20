@@ -1,4 +1,4 @@
-package com.example.companyservice.entities;
+package com.example.sectorservice.entities;
 
 
 import lombok.Data;

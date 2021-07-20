@@ -1,9 +1,8 @@
-package com.example.companyservice.entities;
+package com.example.sectorservice.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Data

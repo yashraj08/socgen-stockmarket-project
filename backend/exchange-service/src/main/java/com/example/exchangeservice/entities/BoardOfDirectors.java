@@ -1,10 +1,8 @@
-package com.example.companyservice.entities;
-
+package com.example.exchangeservice.entities;
 
 import lombok.Data;
 
 import javax.persistence.*;
-
 @Data
 @Entity
 @Table(name="BoardOfDirectors")
@@ -21,3 +19,5 @@ public class BoardOfDirectors {
     @JoinColumn(name="companyId",referencedColumnName = "id")
     private Company company;
 }
+
+

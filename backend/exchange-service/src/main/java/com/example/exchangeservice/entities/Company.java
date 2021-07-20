@@ -1,4 +1,5 @@
-package com.example.companyservice.entities;
+package com.example.exchangeservice.entities;
+
 
 import lombok.Data;
 
@@ -38,3 +39,4 @@ public class Company {
     private Sector sector;
 
 }
+

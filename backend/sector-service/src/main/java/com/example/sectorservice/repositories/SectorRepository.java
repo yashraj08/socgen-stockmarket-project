@@ -1,7 +1,6 @@
-package com.example.companyservice.repositories;
+package com.example.sectorservice.repositories;
 
-
-import com.example.companyservice.entities.Sector;
+import com.example.sectorservice.entities.Sector;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
