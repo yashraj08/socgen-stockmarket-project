@@ -1,8 +1,9 @@
-package com.example.companyservice.entities;
+package com.example.sectorservice.entities;
 
 import lombok.Data;
 
 import javax.persistence.*;
+
 
 @Data
 @Entity
@@ -21,5 +22,4 @@ public class StockExchange {
     @OneToOne
     @JoinColumn(name="addressId",referencedColumnName = "id")
     private Address address;
-
 }

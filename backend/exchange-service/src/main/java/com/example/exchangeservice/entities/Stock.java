@@ -28,7 +28,7 @@ public class Stock {
     @JoinColumn(name="companyId",referencedColumnName = "id")
     private Company company;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="stockExchangeId",referencedColumnName = "id")
     private StockExchange stockExchange;
 

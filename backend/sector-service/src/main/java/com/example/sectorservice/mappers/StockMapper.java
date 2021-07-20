@@ -1,7 +1,7 @@
-package com.example.importservice.Mapper;
+package com.example.sectorservice.mappers;
 
-import com.example.importservice.Dtos.StockDto;
-import com.example.importservice.entities.Stock;
+import com.example.sectorservice.dtos.StockDto;
+import com.example.sectorservice.entities.Stock;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.ConfigurableMapper;
 import org.springframework.stereotype.Component;

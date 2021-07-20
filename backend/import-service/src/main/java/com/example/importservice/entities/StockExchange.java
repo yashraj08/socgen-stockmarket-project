@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="StockExchange")
+@Table(name="stockExchange")
 public class StockExchange {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Id

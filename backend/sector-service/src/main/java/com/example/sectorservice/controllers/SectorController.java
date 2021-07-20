@@ -3,10 +3,13 @@ package com.example.sectorservice.controllers;
 
 import com.example.sectorservice.dtos.CompanyDto;
 import com.example.sectorservice.dtos.SectorDto;
+import com.example.sectorservice.dtos.StockDto;
 import com.example.sectorservice.services.SectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/sector")
@@ -32,6 +35,10 @@ public class SectorController {
     @PostMapping
     public boolean addSector(@RequestBody SectorDto sectorDto){
         return sectorService.addSector(sectorDto);
+    }
+    @PostMapping("{id}/price")
+    public List<StockDto> sectorPrices(@PathVariable int id, @RequestBody Date fromDate, @RequestBody Time fromTime, @RequestBody Date toDate, @RequestBody Time toTime){
+        return  sectorService.sectorPrices(id,fromDate,fromTime,toDate,toTime);
     }
 
 }

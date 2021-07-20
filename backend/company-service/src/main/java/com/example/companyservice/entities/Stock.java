@@ -1,4 +1,4 @@
-package com.example.importservice.entities;
+package com.example.companyservice.entities;
 
 import lombok.Data;
 
@@ -34,3 +34,4 @@ public class Stock {
 
 
 }
+

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Company")
+@Table(name="company")
 public class Company {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Id

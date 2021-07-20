@@ -1,4 +1,4 @@
-package com.example.importservice.entities;
+package com.example.sectorservice.entities;
 
 import lombok.Data;
 
@@ -31,6 +31,5 @@ public class Stock {
     @ManyToOne
     @JoinColumn(name="stockExchangeId",referencedColumnName = "id")
     private StockExchange stockExchange;
-
 
 }

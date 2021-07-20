@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name="IPO")
+@Table(name="ipo")
 public class Ipo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
