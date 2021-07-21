@@ -2,7 +2,7 @@ package com.example.importservice.services;
 
 
 import com.example.importservice.Dtos.StockDto;
-import com.example.importservice.Mapper.StockMapper;
+import com.example.importservice.mappers.StockMapper;
 import com.example.importservice.entities.Company;
 import com.example.importservice.entities.Stock;
 import com.example.importservice.entities.StockExchange;

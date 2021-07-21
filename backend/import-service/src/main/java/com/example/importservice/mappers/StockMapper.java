@@ -1,4 +1,4 @@
-package com.example.importservice.Mapper;
+package com.example.importservice.mappers;
 
 import com.example.importservice.Dtos.StockDto;
 import com.example.importservice.entities.Stock;
