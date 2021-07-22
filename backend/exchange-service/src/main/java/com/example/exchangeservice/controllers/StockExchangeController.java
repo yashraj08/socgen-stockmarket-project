@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/stockExchange")
+@RequestMapping("/stockexchange")
 @RestController
 public class StockExchangeController {
     @Autowired

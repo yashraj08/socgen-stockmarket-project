@@ -15,7 +15,7 @@ public class User {
     @Column(name="id",length = 5)
     private int id;
 
-    @Column(name = "username",length = 20)
+    @Column(name = "username",length = 20,unique = true)
     private String username;
 
     @Column(name="password")
@@ -31,8 +31,8 @@ public class User {
     @Column(name = "isdCode",length = 10)
     private String isdCode;
 
-    @Column(name = "usertype",length = 20)
-    private String usertype;
+    @Column(name = "isAdmin")
+    private boolean isAdmin;
 
     @Column(name = "confirmed")
     private boolean confirmed;

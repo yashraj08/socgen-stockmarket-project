@@ -38,6 +38,8 @@ public class UserService {
 
     public boolean addUser(UserDto userDto){
         User user=userMapper.map(userDto, User.class);
+        user.setAdmin(false);
+        user.setConfirmed(false);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;

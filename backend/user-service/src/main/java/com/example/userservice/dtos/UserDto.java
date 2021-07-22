@@ -9,6 +9,6 @@ public class UserDto {
     private String email;
     private String mobile;
     private String isdCode;
-    private String type;
+    private boolean isAdmin;
     private boolean confirmed;
 }
