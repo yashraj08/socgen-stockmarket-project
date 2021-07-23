@@ -22,7 +22,7 @@ public class UserController {
         return userService.getAllUser();
     }
     @PostMapping
-    public boolean addUser(UserDto userDto){
+    public boolean addUser(@RequestBody UserDto userDto){
         return userService.addUser(userDto);
     }
     @GetMapping("{id}")

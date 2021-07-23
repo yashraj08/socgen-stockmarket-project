@@ -4,6 +4,7 @@ import com.example.authservice.dtos.ResponseDto;
 import com.example.authservice.dtos.UserDto;
 import com.example.authservice.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -14,7 +15,7 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/login")
-    public ResponseDto login(@RequestBody UserDto userDto){
-        return authService.login(userDto);
+    public ResponseEntity<ResponseDto> login(@RequestBody UserDto userDto){
+        return ResponseEntity.ok(authService.login(userDto));
     }
 }

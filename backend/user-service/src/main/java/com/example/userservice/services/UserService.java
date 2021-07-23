@@ -6,6 +6,7 @@ import com.example.userservice.entities.User;
 import com.example.userservice.mappers.UserMapper;
 import com.example.userservice.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,7 @@ public class UserService {
     UserRepository userRepository;
     @Autowired
     UserMapper userMapper;
-    @Autowired
-    PasswordEncoder passwordEncoder;
+
 
     public List<UserDto> getAllUser(){
         List<User> users = userRepository.findAll();
@@ -37,10 +37,12 @@ public class UserService {
     }
 
     public boolean addUser(UserDto userDto){
+
         User user=userMapper.map(userDto, User.class);
         user.setAdmin(false);
         user.setConfirmed(false);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        user.setPassword(BCrypt.hashpw(user.getPassword(),BCrypt.gensalt()));
         userRepository.save(user);
         return true;
     }
