@@ -13,5 +13,5 @@ public class CompanyDto {
     private boolean listed;
     private String about;
     private List<BoardOfDirectorsDto> boardOfDirectors= new ArrayList<>();
-    private SectorDto sector;
+    private int sectorId;
 }

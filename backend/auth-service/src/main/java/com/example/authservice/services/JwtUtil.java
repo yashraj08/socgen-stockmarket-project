@@ -43,20 +43,17 @@ public class JwtUtil {
         return expiration.before(new Date());
     }
 
-    public String generate(User user, String type) {
+    public String generate(User user) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", user.getId());
         claims.put("role", user.isAdmin()?"admin":"user");
-        return doGenerateToken(claims, user.getUsername(), type);
+        return doGenerateToken(claims, user.getUsername());
     }
 
-    private String doGenerateToken(Map<String, Object> claims, String username, String type) {
+    private String doGenerateToken(Map<String, Object> claims, String username ) {
         long expirationTimeLong;
-        if ("ACCESS".equals(type)) {
             expirationTimeLong = Long.parseLong(expirationTime) * 1000;
-        } else {
-            expirationTimeLong = Long.parseLong(expirationTime) * 1000 * 5;
-        }
+
         final Date createdDate = new Date();
         final Date expirationDate = new Date(createdDate.getTime() + expirationTimeLong);
 

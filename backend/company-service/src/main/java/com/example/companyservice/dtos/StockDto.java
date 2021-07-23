@@ -8,8 +8,8 @@ import java.util.Date;
 @Data
 public class StockDto {
 
-    private CompanyDto company;
-    private StockExchangeDto stockExchange;
+    private int companyId;
+    private int stockExchangeId;
     private float currentPrice;
     private Date Date;
     private Time time;

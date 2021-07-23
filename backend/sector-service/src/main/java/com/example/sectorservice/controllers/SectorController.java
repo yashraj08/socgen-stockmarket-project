@@ -21,7 +21,6 @@ public class SectorController {
 
     @GetMapping
     public List<SectorDto> getAllSectors(){
-
         return sectorService.getAllSectors();
     }
     @GetMapping("{id}")

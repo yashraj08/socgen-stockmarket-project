@@ -6,8 +6,8 @@ import java.util.Date;
 
 @Data
 public class IpoDto {
-    private CompanyDto company;
-    private StockExchangeDto stockExchange;
+    private int companyId;
+    private int stockExchangeId;
     private String remarks;
     private float pricePerStock;
     private int totalStock;

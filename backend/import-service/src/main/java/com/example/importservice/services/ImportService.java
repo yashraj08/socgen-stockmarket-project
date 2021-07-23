@@ -58,7 +58,10 @@ public class ImportService {
             stock.setDate(row.getCell(3).getDateCellValue());
             stock.setTime((Time) row.getCell(4).getDateCellValue());
             stockRepository.save(stock);
-            stockDtos.add(stockMapper.map(stock,StockDto.class));
+            StockDto stockdto=stockMapper.map(stock,StockDto.class);
+            stockdto.setCompanyId(companyOptional.get().getId());
+            stockdto.setStockExchangeId(stockExchangeOptional.get().getId());
+            stockDtos.add(stockdto);
         }
         return stockDtos;
     }

@@ -56,10 +56,11 @@ public class CompanyService {
 
     public boolean addCompany(CompanyDto companyDto){
         Company company= companyMapper.map(companyDto,Company.class);
-        Optional<Sector> sector=sectorRepository.findById(company.getSector().getId());
+        Optional<Sector> sector=sectorRepository.findById(companyDto.getSectorId());
         if(!sector.isPresent()){
             return false;
         }
+        company.setSector(sector.get());
         companyRepository.save(company);
         for(BoardOfDirectors directors: company.getBoardOfDirectors()){
             directors.setCompany(company);
