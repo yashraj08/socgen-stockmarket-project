@@ -27,9 +27,15 @@ public class Authfilters implements GatewayFilter {
                 return this.onError(exchange, "Authorization header is missing in request", HttpStatus.UNAUTHORIZED);
 
             final String token = this.getAuthHeader(request);
+            Claims claims = jwtUtil.getAllClaimsFromToken(token);
 
             if (jwtUtil.isInvalid(token))
                 return this.onError(exchange, "Authorization header is invalid", HttpStatus.UNAUTHORIZED);
+            if(routerValidator.AdminRequired.test(request)){
+                if(!claims.get("role").equals("admin")){
+                    return this.onError(exchange, "Admin Permission required", HttpStatus.UNAUTHORIZED);
+                }
+            }
 
             this.populateRequestWithHeaders(exchange, token);
         }

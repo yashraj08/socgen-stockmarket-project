@@ -12,9 +12,13 @@ import java.util.function.Predicate;
 public class RouterValidator {
 
     public static  List<String> openApiEndpoints = new ArrayList<>(Arrays.asList("/auth/login","/user"));
+    public static  List<String> adminApiEndpoints = new ArrayList<>(Arrays.asList("/user/admin","/import"));
     public Predicate<ServerHttpRequest> isSecured =
             request -> openApiEndpoints
                     .stream()
                     .noneMatch(uri -> request.getURI().getPath().contains(uri));
+    public Predicate<ServerHttpRequest> AdminRequired =
+            request -> adminApiEndpoints.stream().anyMatch(uri -> request.getURI().getPath().contains(uri));
+
 
 }
