@@ -19,7 +19,7 @@ public class RoutingConfig {
                 .route("import-service",r->r.path("/import/**").filters(f->f.filter(authfilters)).uri("lb://importservice"))
                 .route("exchange-service",r->r.path("/stockexchange/**").filters(f->f.filter(authfilters)).uri("lb://exchangeservice"))
                 .route("company-service",r->r.path("/company/**").filters(f->f.filter(authfilters)).uri("lb://companyservice"))
-                .route("auth-service",r->r.path("/auth/**").filters(f->f.filter(authfilters)).uri("lb://authservice"))
+                .route("auth-service",r->r.path("/login/**").filters(f->f.filter(authfilters)).uri("lb://authservice"))
                 .build();
     }
 }

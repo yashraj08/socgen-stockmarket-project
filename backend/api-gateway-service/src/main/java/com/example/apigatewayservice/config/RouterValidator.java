@@ -11,8 +11,7 @@ import java.util.function.Predicate;
 @Component
 public class RouterValidator {
 
-    public static  List<String> openApiEndpoints = new ArrayList<>(Arrays.asList("/auth/login","/user"));
-
+    public static  List<String> openApiEndpoints = new ArrayList<>(Arrays.asList("/login","/user"));
     public Predicate<ServerHttpRequest> isSecured =
             request -> openApiEndpoints
                     .stream()

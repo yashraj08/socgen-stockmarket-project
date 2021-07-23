@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/ipo")
+
 @RestController
+@RequestMapping("/ipo")
+@CrossOrigin
 public class IpoController {
     @Autowired
     private IpoServices ipoServices;

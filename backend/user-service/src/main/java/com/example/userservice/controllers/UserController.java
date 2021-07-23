@@ -1,8 +1,4 @@
 package com.example.userservice.controllers;
-
-
-
-
 import com.example.userservice.dtos.UserDto;
 import com.example.userservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RequestMapping("/user")
 @RestController
+@CrossOrigin
+@RequestMapping
 public class UserController {
     @Autowired
     private UserService userService;
@@ -37,7 +34,4 @@ public class UserController {
     public boolean updateUser(@PathVariable int id,@RequestBody UserDto userDto){
         return userService.updateUser(id,userDto);
     }
-
-
-
 }

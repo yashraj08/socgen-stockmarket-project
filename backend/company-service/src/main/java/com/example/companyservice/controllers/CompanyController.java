@@ -11,8 +11,10 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-@RequestMapping("/company")
+
 @RestController
+@CrossOrigin
+@RequestMapping
 public class CompanyController {
     @Autowired
     private CompanyService companyService;

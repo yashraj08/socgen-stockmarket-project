@@ -12,8 +12,9 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-@RequestMapping("/sector")
 @RestController
+@CrossOrigin
+@RequestMapping
 public class SectorController {
     @Autowired
     private SectorService sectorService;
