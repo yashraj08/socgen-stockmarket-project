@@ -1,0 +1,36 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    registerWithEureka: true
+  instance:
+    preferIpAddress: true
+
+cloud:
+  gateway:
+    discovery:
+      locator:
+        enabled: true
+
+jwt:
+  secret: DDhgwHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY
+server:
+  port: 9197
+spring:
+  application:
+    name: apigatewayservice
+  main:
+    webApplicationType: reactive
+  cloud:
+    gateway:
+      globalcors:
+        addToSimpleUrlHandlerMapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+

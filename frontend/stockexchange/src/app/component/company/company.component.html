@@ -1,0 +1,18 @@
+<div class="container box-wrap" *ngIf="this.companies.length">
+    <ul class="list-group">
+        <li class="list-group-item p-2 d-flex flex-row">
+            <h5 class="col-2"><b>Name</b></h5>
+            <h5 class="col-2"><b>Sector</b></h5>
+            <h5 class="col-3"><b>Brief</b></h5>
+            <h5 class="col-2"><b>Action</b></h5>
+        </li>
+        <li class="list-group-item p-2 d-flex flex-row" *ngFor="let c of companies">
+            <p class="col-2">{{c.name}}</p>
+            <p class="col-2">{{c.sectorName}}</p>
+            <p class="col-3">{{c.about}}</p>
+            <p class="col-3">{{c.ceo}}</p>
+            <!-- <button class="btn btn-dark col-2" routerLink="/updateCompany/{{c.id}}">Update</button>
+        <button class="btn btn-danger col-2 ms-5" (click)="deleteCompany(c.id)">Deactivate</button> -->
+        </li>
+    </ul>
+</div>

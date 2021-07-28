@@ -8,33 +8,33 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Company")
+@Table(name="company")
 public class Company {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Id
+    @Column(name="id",length=5)
     private int id;
 
+    @Column(name="name",length=50)
     private String name;
 
+    @Column(name="turnover",length=8)
     private float turnover;
 
+    @Column(name="ceo",length=20)
     private String ceo;
 
+    @Column(name="listed")
     private boolean listed;
 
+    @Column(name="about",length=100)
     private String about;
 
     @OneToMany(mappedBy = "company")
     private List<BoardOfDirectors> boardOfDirectors= new ArrayList<>();
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name="sector_id",referencedColumnName ="id")
     private Sector sector;
 
-    public void addBoardOfDirectors(BoardOfDirectors boardOfDirectors){
-        this.boardOfDirectors.add(boardOfDirectors);
-    }
-    public void removeBoardOfDirectors(BoardOfDirectors boardOfDirectors){
-        this.boardOfDirectors.remove(boardOfDirectors);
-    }
 }
