@@ -1,0 +1,12 @@
+<div class="conatiner">
+    <h3>Users Detail</h3>
+    <ul class="list-unstyled">
+        <li class="card card-body mb-2" *ngFor="let user of users">
+            <h3>{{ user.username }}</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Email: {{ user.email }}</li>
+                <li class="list-group-item">Phone Number: {{ user.isdCode}} {{user.mobile}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@RequestMapping("/import")
 @CrossOrigin
-@RequestMapping
 public class ImportController {
     @Autowired
     private ImportService importService;

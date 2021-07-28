@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("stockexchange")
 @CrossOrigin
-@RequestMapping
 public class StockExchangeController {
     @Autowired
     private StockExchangeService stockExchangeService;

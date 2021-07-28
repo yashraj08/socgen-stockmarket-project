@@ -24,18 +24,13 @@ public class Authfilters implements GatewayFilter {
 
         if (routerValidator.isSecured.test(request)) {
             if (this.isAuthMissing(request))
-                return this.onError(exchange, "Authorization header is missing in request", HttpStatus.UNAUTHORIZED);
+                return this.onError(exchange);
 
             final String token = this.getAuthHeader(request);
-            Claims claims = jwtUtil.getAllClaimsFromToken(token);
 
             if (jwtUtil.isInvalid(token))
-                return this.onError(exchange, "Authorization header is invalid", HttpStatus.UNAUTHORIZED);
-            if(routerValidator.AdminRequired.test(request)){
-                if(!claims.get("role").equals("admin")){
-                    return this.onError(exchange, "Admin Permission required", HttpStatus.UNAUTHORIZED);
-                }
-            }
+                return this.onError(exchange);
+
 
             this.populateRequestWithHeaders(exchange, token);
         }
@@ -44,9 +39,9 @@ public class Authfilters implements GatewayFilter {
 
 
 
-    private Mono<Void> onError(ServerWebExchange exchange, String err, HttpStatus httpStatus) {
+    private Mono<Void> onError(ServerWebExchange exchange) {
         ServerHttpResponse response = exchange.getResponse();
-        response.setStatusCode(httpStatus);
+        response.setStatusCode(HttpStatus.UNAUTHORIZED);
         return response.setComplete();
     }
 

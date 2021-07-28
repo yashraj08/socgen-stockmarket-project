@@ -9,8 +9,9 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/ipo")
+
 @CrossOrigin
+@RequestMapping("/ipo")
 public class IpoController {
     @Autowired
     private IpoServices ipoServices;

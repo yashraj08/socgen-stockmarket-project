@@ -2,6 +2,7 @@ package com.example.importservice.services;
 
 
 import com.example.importservice.Dtos.StockDto;
+import com.example.importservice.exceptions.EmptyInputException;
 import com.example.importservice.mappers.StockMapper;
 import com.example.importservice.entities.Company;
 import com.example.importservice.entities.Stock;
@@ -47,13 +48,13 @@ public class ImportService {
             if(companyOptional.isPresent())
                 stock.setCompany(companyOptional.get());
             else{
-                return new ArrayList<>();
+              throw new EmptyInputException("604","Error in row "+"i+1"+" Company not Present");
             }
             Optional<StockExchange>stockExchangeOptional=stockExchangeRepository.findById((int)row.getCell(1).getNumericCellValue());
             if(stockExchangeOptional.isPresent())
                 stock.setStockExchange(stockExchangeOptional.get());
             else
-                return new ArrayList<>();
+                throw new EmptyInputException("604","Error in row "+"i+1"+" StockExchange not Present");
             stock.setCurrentPrice((float)row.getCell(2).getNumericCellValue());
             stock.setDate(row.getCell(3).getDateCellValue());
             stock.setTime((Time) row.getCell(4).getDateCellValue());

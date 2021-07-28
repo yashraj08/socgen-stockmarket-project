@@ -8,8 +8,8 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/user")
 @CrossOrigin
-@RequestMapping
 public class UserController {
     @Autowired
     private UserService userService;

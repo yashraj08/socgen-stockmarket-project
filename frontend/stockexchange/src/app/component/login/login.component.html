@@ -1,0 +1,21 @@
+<div class="text-center">
+    <h1>Login</h1>
+</div>
+
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="form-div">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" [(ngModel)]="login.username" [ngClass]="{'is-invalid':registerName.errors&& registerName.touched }" class="form-control" name="username" #registerName="ngModel" required>
+            <div [hidden]="!registerName.errors?.required" class="invalid-feedback">Username is Required</div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="login.password" [ngClass]="{'is-invalid':registerPassword.errors && registerPassword.touched }" class="form-control" name="password" #registerPassword="ngModel" required minlength="6">
+            <div [hidden]="!registerPassword.errors?.required" class="invalid-feedback">Password is Requred</div>
+            <div [hidden]="!registerPassword.errors?.minlength" class="invalid-feedback">Length should be greater than 6</div>
+        </div>
+        <input type="submit" [disabled]="!loginForm.form.valid" value="Login" class="btn btn-primary">
+    </form>
+</div>

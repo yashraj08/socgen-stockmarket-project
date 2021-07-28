@@ -10,6 +10,6 @@ public class StockDto {
     private int companyId;
     private int stockExchangeId;
     private float currentPrice;
-    private Date Date;
+    private Date date;
     private Time time;
 }

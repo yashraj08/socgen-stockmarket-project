@@ -13,8 +13,8 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/sector")
 @CrossOrigin
-@RequestMapping
 public class SectorController {
     @Autowired
     private SectorService sectorService;

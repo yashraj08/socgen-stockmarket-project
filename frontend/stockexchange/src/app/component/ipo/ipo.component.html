@@ -1,0 +1,21 @@
+<div class="container"></div>
+
+<div class="container box-wrap" *ngIf="this.ipos.length">
+    <ul class="list-group">
+        <li class="list-group-item p-2 d-flex flex-row">
+            <h5 class="col-2"><b>Company Name</b></h5>
+            <h5 class="col-3"><b>Listed In</b></h5>
+            <h5 class="col-2"><b>Price Per Share</b></h5>
+            <h5 class="col-2"><b>Shares</b></h5>
+            <h5 class="col-3"><b>Opening Date and Time</b></h5>
+        </li>
+        <li class="list-group-item p-2 d-flex flex-row" *ngFor="let c of ipos">
+            <p class="col-2">{{c.companyId}}</p>
+            <p class="col-3">{{c.stockExchangeId}}</p>
+            <p class="col-2">{{c.pricePerStock | currency:'INR'}}</p>
+            <p class="col-2">{{c.totalStock}}</p>
+            <p class="col-3">{{c.openDateTime | date:'medium'}}</p>
+        </li>
+    </ul>
+
+</div>
